@@ -1,24 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { type } from 'os';
+import  W3practice  from './W3practice';
+import UsersList, { FirstComponent } from './components/FirstComponent';
+import PropsComponent from './components/PropsComponent';
+import UserComponent from './components/UserComponent';
+import Greet from './components/Greet';
+import { Person } from './components/Person';
+import { Personlist } from './components/Personlist';
+import { Status } from './components/Status';
+import { Heading } from './components/Heading';
+import { Oscar } from './components/Oscar';
 
-function App() {
+const App = ()=> {
+ const personName={
+  first:'mani',
+  last:'G'
+ }
+ const nameList = [
+  {
+    first:'mani',
+    last:'G'
+   },
+   {
+    first:'vamsi',
+    last:'G'
+   },
+   {
+    first:'aneesh',
+    last:'patil'
+   }
+ ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <W3practice/>
+     <FirstComponent/>
+     <UsersList/>
+     <PropsComponent fName='jack' lName='Sparrow'/>
+     <UserComponent name="John Doe" age={26} address="87 Summer St, Boston, MA 02110" dob={new Date()}/>
+     <Greet name={'mani'} count={20} isLogedin={true}/>
+     <Person name={personName}/>
+     <Personlist names={nameList}/>
+     <Status status='Error'/>
+     <Heading>This is Heading component children</Heading>
+     <Oscar><Heading>Oscar goes to leader</Heading></Oscar>
     </div>
   );
 }
