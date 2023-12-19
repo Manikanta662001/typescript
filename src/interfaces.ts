@@ -5,4 +5,3 @@ interface UserInterface{
     dob:Date
 }
 export default UserInterface
-

@@ -11,6 +11,7 @@ import { Personlist } from './components/Personlist';
 import { Status } from './components/Status';
 import { Heading } from './components/Heading';
 import { Oscar } from './components/Oscar';
+import { Count } from './components/Count';
 
 const App = ()=> {
  const personName={
@@ -43,7 +44,9 @@ const App = ()=> {
      <Personlist names={nameList}/>
      <Status status='Error'/>
      <Heading>This is Heading component children</Heading>
+     <Heading><div>This is Heading component children</div></Heading>
      <Oscar><Heading>Oscar goes to leader</Heading></Oscar>
+     <Count count={2}/>
     </div>
   );
 }

@@ -1,6 +1,12 @@
 import React from 'react'
 
-type personlistProps= {
+// type personlistProps= {
+//     names:{
+//         first:string,
+//         last:string
+//     }[]
+// }
+interface personlistProps {
     names:{
         first:string,
         last:string

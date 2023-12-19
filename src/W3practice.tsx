@@ -226,7 +226,7 @@ const W3practice = () => {
   };
   console.log(add(10,20))
   //function returning promise
-  async function getFavoriteNumber(): Promise<number> {
+  async function getFavoriteNumber(): Promise<number>{
     return 26;
   }
   console.log(getFavoriteNumber())
@@ -295,6 +295,12 @@ const W3practice = () => {
   // console.log(user.location)
 
   let datanull:null=null;
+
+  function createPair<S, N>(v1: S, v2: N): [S, N] {
+    return [v1, v2];
+  }
+  
+  console.log(createPair<string, number>('hello', 42)); // ['hello', 42]
   return (
     <div>
      <h1>This is typescript project</h1>

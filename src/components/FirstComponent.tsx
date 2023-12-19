@@ -10,6 +10,7 @@ export const FirstComponent:React.FC<{}> = () => {
     </div>
   )
 }
+
 interface Users{
     id:number,
     name:string,
@@ -55,18 +56,18 @@ const UsersList=()=>{
     }
    return (
     <ul>
-        <li>
+        
             {users?.map((user)=>{
                 return(
-                    <div key={user.id}>
+                    <li key={user.id}>
                     <p>{user.id}</p>
                     <p>{user.name}</p>
                     <p>{user.username}</p>
                     <p>{user.email}</p>
-                </div>
+                </li>
                 )
             })}
-        </li>
+        
     </ul>
    )
         

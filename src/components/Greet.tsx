@@ -7,6 +7,8 @@ type Greetprops={
 }
 // interface Greetprops{
 //     name:string
+//     count:number,
+//     isLogedin:boolean
 // }
 const Greet = (props:Greetprops) => {
   return (

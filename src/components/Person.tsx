@@ -1,9 +1,16 @@
 import React from 'react'
 
-type PersonProps = {
+// type PersonProps = {
+//         name:{
+//           first:string,
+//           last:string
+//         }
+    
+// }
+interface PersonProps{
     name:{
-        first:string,
-        last:string
+      first:string,
+      last:string
     }
 }
 export const Person = (props:PersonProps) => {
