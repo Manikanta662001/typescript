@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { type } from 'os';
 import  W3practice  from './W3practice';
@@ -12,8 +12,10 @@ import { Status } from './components/Status';
 import { Heading } from './components/Heading';
 import { Oscar } from './components/Oscar';
 import { Count } from './components/Count';
+import Dummycompo from './components/Dummycompo';
 
 const App = ()=> {
+  const [number,setNumber] = useState<number>(2)
  const personName={
   first:'mani',
   last:'G'
@@ -32,6 +34,12 @@ const App = ()=> {
     last:'patil'
    }
  ]
+ const style:React.CSSProperties = {
+      fontFamily: 'sans-serif',
+      textAlign: 'center',
+      color : 'red'
+      
+ }
   return (
     <div className="App">
      <W3practice/>
@@ -47,6 +55,7 @@ const App = ()=> {
      <Heading><div>This is Heading component children</div></Heading>
      <Oscar><Heading>Oscar goes to leader</Heading></Oscar>
      <Count count={2}/>
+     <Dummycompo number={number} setNumber={setNumber} style={style} />
     </div>
   );
 }

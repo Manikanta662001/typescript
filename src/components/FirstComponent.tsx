@@ -37,8 +37,8 @@ const Useusers=()=>{
                 const res = await response.json()
                 setstate({...state,users:res,isLoading:false})
             }
-            catch(err:any){
-                setstate({...state,error:err.message,isLoading:false})
+            catch(error:any){
+                setstate({...state,error:error.message,isLoading:false})
             }
         } 
         fetchUsers();

@@ -125,8 +125,8 @@ const W3practice = () => {
   }
   console.log(isItSummer(Month.Aug))
   //Aliases syntax
-  // type alias = Datatype;
-  // let msg : alias;
+  // type aliasName = Datatype;
+  // let msg : aliasName;
   type chars= string;
   let message:chars;
   message = 'hai this is alias'
@@ -189,11 +189,12 @@ const W3practice = () => {
   
   //Union | (OR)
   
-  const Statuscode=(code: number | string)=>{
+  const Statuscode=(code: number | string | boolean)=>{
     console.log('Statuscode is ',code,typeof code)
   }
   Statuscode(200)
   Statuscode('400')
+  Statuscode(false)
   
   let columns : string | number
   columns = 'col';
