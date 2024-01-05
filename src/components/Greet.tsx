@@ -1,14 +1,14 @@
 import React from 'react'
 
 type Greetprops={
-    name:string,
-    count:number,
-    isLogedin:boolean
+    name:string;
+    count:number;
+    isLogedin:boolean;
 }
 // interface Greetprops{
-//     name:string
-//     count:number,
-//     isLogedin:boolean
+//     name:string;
+//     count:number;
+//     isLogedin:boolean;
 // }
 const Greet = (props:Greetprops) => {
   return (

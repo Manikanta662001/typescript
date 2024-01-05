@@ -12,10 +12,10 @@ export const FirstComponent:React.FC<{}> = () => {
 }
 
 interface Users{
-    id:number,
-    name:string,
-    email:string,
-    username:string
+    id:number;
+    name:string;
+    email:string;
+    username:string;
 }
 
 interface UserState{

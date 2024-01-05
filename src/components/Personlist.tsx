@@ -2,14 +2,14 @@ import React from 'react'
 
 // type personlistProps= {
 //     names:{
-//         first:string,
-//         last:string
+//         first:string;
+//         last:string;
 //     }[]
 // }
 interface personlistProps {
     names:{
-        first:string,
-        last:string
+        first:string;
+        last:string;
     }[]
 }
 export const Personlist = (props:personlistProps) => {
