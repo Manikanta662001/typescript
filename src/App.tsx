@@ -13,6 +13,7 @@ import { Heading } from './components/Heading';
 import { Oscar } from './components/Oscar';
 import { Count } from './components/Count';
 import Dummycompo from './components/Dummycompo';
+import FetchTesting from './components/FetchTesting';
 
 const App = ()=> {
   const [number,setNumber] = useState<number>(2)
@@ -56,6 +57,7 @@ const App = ()=> {
      <Oscar><Heading>Oscar goes to leader</Heading></Oscar>
      <Count count={2}/>
      <Dummycompo number={number} setNumber={setNumber} style={style} />
+     <FetchTesting/>
     </div>
   );
 }

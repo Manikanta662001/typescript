@@ -1,8 +1,12 @@
 import React from 'react'
 type UserProps={
-    fName:string,
+    fName:string;
     lName:string
 }
+// interface UserProps{
+//     fName:string;
+//     lName:string
+// }
 
 const PropsComponent:React.FC<UserProps> = ({fName,lName}) => {
   return (
