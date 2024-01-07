@@ -43,6 +43,7 @@ const App = ()=> {
  }
   return (
     <div className="App">
+      <h1>This project is deployed using {personName.first}</h1>
      <W3practice/>
      <FirstComponent/>
      <UsersList/>
