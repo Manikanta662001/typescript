@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import tsimg from './../images/tsimg.jpg'
-
+import tsimg from "./../assets/tsimg.jpg"
 export const FirstComponent:React.FC<{}> = () => {
   return (
     <div>
