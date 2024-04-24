@@ -14,9 +14,39 @@ import { Oscar } from './components/Oscar';
 import { Count } from './components/Count';
 import Dummycompo from './components/Dummycompo';
 import FetchTesting from './components/FetchTesting';
+import Input from './components/Input';
 
 const App = ()=> {
   const [number,setNumber] = useState<number>(2)
+  const [todo,setTodo] = useState<string>("")
+  const [todoList,setTodoList] = useState<string[]>([])
+  const [submit,setSubmit] = useState<boolean>(false)
+  const [index,setIndex] = useState<number | null>(null)
+  const handleSubmit = (e:any) =>{
+    e.preventDefault();
+    if (!submit){
+    setTodoList([...todoList,todo]);
+    }
+    else{
+      const dummyList = [...todoList];
+      dummyList[index as number] = todo
+      setTodoList(dummyList);
+      setIndex(null);
+      setSubmit(false);
+    }
+    setTodo("");
+  }
+  const handleEdit = (ind : number) =>{
+    const data = todoList[ind];
+    setSubmit(true)
+    setTodo(data);
+    setIndex(ind)
+  }
+  const handleDelete = (ind : number) =>{
+    const dummyList = [...todoList];
+    dummyList.splice(ind,1)
+    setTodoList(dummyList);
+  }
  const personName={
   first:'mani',
   last:'G'
@@ -59,6 +89,7 @@ const App = ()=> {
      <Count count={2}/>
      <Dummycompo number={number} setNumber={setNumber} style={style} />
      <FetchTesting/>
+     <Input todo={todo} setTodo={setTodo} submitFunc={handleSubmit} todoList={todoList} handleEdit={handleEdit} submit={submit} handleDelete={handleDelete}/>
     </div>
   );
 }
