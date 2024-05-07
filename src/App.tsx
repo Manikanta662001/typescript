@@ -22,6 +22,7 @@ import ThemeContextProvider from "./components/context/ThemeContext";
 import Box from "./components/context/Box";
 import UserContextProvider from "./components/context/UserContext";
 import Users from "./components/context/Users";
+import DomRef from "./components/ref/DomRef";
 
 const App = () => {
   const [number, setNumber] = useState<number>(2);
@@ -126,6 +127,7 @@ const App = () => {
       <UserContextProvider>
         <Users />
       </UserContextProvider>
+      <DomRef/>
     </div>
   );
 };
