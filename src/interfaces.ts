@@ -1,7 +1,7 @@
-interface UserInterface{
-    name:string,
-    age:number,
-    address:string,
-    dob:Date
+interface UserInterface {
+  name: string;
+  age: number;
+  address: string;
+  dob: Date;
 }
-export default UserInterface
+export default UserInterface;
