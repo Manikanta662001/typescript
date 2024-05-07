@@ -44,7 +44,7 @@ export default Input;
 interface TodoProps {
   todo: string;
   setTodo: Dispatch<SetStateAction<string>>;
-  submitFunc: (e: any) => void;
+  submitFunc: (e: React.MouseEvent<HTMLButtonElement>) => void;
   todoList: string[];
   handleEdit: (ind: number) => void;
   submit: boolean;

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import { Name } from "./Person.types";
 
 // type personlistProps= {
 //     names:{
@@ -7,21 +8,18 @@ import React from 'react'
 //     }[]
 // }
 interface personlistProps {
-    names:{
-        first:string;
-        last:string;
-    }[]
+  names: Name[];
 }
-export const Personlist = (props:personlistProps) => {
+export const Personlist = (props: personlistProps) => {
   return (
     <div>
-        {
-            props.names.map((item,ind)=>{
-                return(
-                    <div key={ind}>{item.first}-{item.last}</div>
-                )
-            })
-        }
+      {props.names.map((item, ind) => {
+        return (
+          <div key={ind}>
+            {item.first}-{item.last}
+          </div>
+        );
+      })}
     </div>
-  )
-}
+  );
+};
