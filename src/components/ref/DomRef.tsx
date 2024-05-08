@@ -2,12 +2,12 @@ import React, { useEffect, useRef } from "react";
 
 function DomRef() {
   const inputRef = useRef<HTMLInputElement>(null!);
-  useEffect(()=>{
-    inputRef.current.focus()
-  },[])
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   return (
     <div>
-      <input type="text" ref={inputRef}/>
+      <input type="text" ref={inputRef} />
     </div>
   );
 }
