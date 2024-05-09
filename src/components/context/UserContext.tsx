@@ -10,7 +10,7 @@ interface UserContextProp {
 }
 
 export const UserContext = createContext<UserContextProp>(
-  {} as UserContextProp
+  {} as UserContextProp,
 );
 function UserContextProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);

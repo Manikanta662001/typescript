@@ -24,6 +24,11 @@ import Users from "./components/context/Users";
 import DomRef from "./components/ref/DomRef";
 import MutableRef from "./components/ref/MutableRef";
 import ClassCounter from "./components/class/ClassCounter";
+import List from "./components/generics/List";
+import GenericsTesting from "./components/generics/GenericsTesting";
+import Summary from "./components/generics/Summary";
+import RandomQuoteGenerator from "./components/RandomQuoteGenerator";
+import PasswordGenerator from "./components/PasswordGenerator";
 
 const App = () => {
   const [number, setNumber] = useState<number>(2);
@@ -81,7 +86,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>This project is deployed using {personName.first}</h1>
-      <W3practice/>
+      <W3practice />
       <FirstComponent />
       <UsersList />
       <PropsComponent fName="jack" lName="Sparrow" />
@@ -128,9 +133,23 @@ const App = () => {
       <UserContextProvider>
         <Users />
       </UserContextProvider>
-      <DomRef/>
-      <MutableRef/>
-      <ClassCounter message="Class Counter has a Count of "/>
+      <DomRef />
+      <MutableRef />
+      <ClassCounter message="Class Counter has a Count of " />
+      {/* <List items={["lion","bull","fox"]} onClick = {(item)=>console.log("LISTITEM::",item)}/>
+      <List items={[5,6,7]} onClick = {(item)=>console.log("LISTITEM::",item)}/> */}
+      <List
+        items={[
+          { id: 1, name: "mani", loc: "hyb" },
+          { id: 2, name: "ram", loc: "hyb" },
+          { id: 3, name: "aadarsh", loc: "hyb" },
+        ]}
+        onClick={(item) => console.log("LISTITEM::", item)}
+      />
+      <GenericsTesting ve1={23} ve2={65} />
+      <Summary data={{ name: "mani", age: 22 }} property={"age"} />
+      <RandomQuoteGenerator/>
+      <PasswordGenerator/>
     </div>
   );
 };

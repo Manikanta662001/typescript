@@ -270,9 +270,28 @@ const W3practice = () => {
     mileage: 12000, // `Required` forces mileage to be defined
   };
   console.log(myCar, "MYCAR");
+  const fullName: Record<string, string> = {
+    first: "Abc",
+    last: "xyz",
+  };
+  interface Person1 {
+    name: string;
+    age: number;
+    location?: string;
+  }
+  const person1: Omit<Person1, "age" | "location"> = {
+    name: "hai",
+  };
+  const bob: Pick<Person1, "age"> = {
+    age: 22,
+  };
 
-  //class
-
+  const person2: Readonly<Person1> = {
+    name: "Dylan",
+    age: 35,
+  };
+  //it is Readonly
+  //person2.age=30
   class Humans {
     private ssn: string;
     private firstName: string;
