@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import { type } from "os";
 import W3practice from "./W3practice";
 import UsersList, { FirstComponent } from "./components/FirstComponent";
 import PropsComponent from "./components/PropsComponent";
@@ -23,6 +22,8 @@ import Box from "./components/context/Box";
 import UserContextProvider from "./components/context/UserContext";
 import Users from "./components/context/Users";
 import DomRef from "./components/ref/DomRef";
+import MutableRef from "./components/ref/MutableRef";
+import ClassCounter from "./components/class/ClassCounter";
 
 const App = () => {
   const [number, setNumber] = useState<number>(2);
@@ -80,7 +81,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>This project is deployed using {personName.first}</h1>
-      {/* <W3practice/> */}
+      <W3practice/>
       <FirstComponent />
       <UsersList />
       <PropsComponent fName="jack" lName="Sparrow" />
@@ -128,6 +129,8 @@ const App = () => {
         <Users />
       </UserContextProvider>
       <DomRef/>
+      <MutableRef/>
+      <ClassCounter message="Class Counter has a Count of "/>
     </div>
   );
 };
