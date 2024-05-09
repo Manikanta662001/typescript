@@ -5,3 +5,8 @@ interface UserInterface {
   dob: Date;
 }
 export default UserInterface;
+
+export interface QuotesInterface {
+  text: string;
+  author: string;
+}
