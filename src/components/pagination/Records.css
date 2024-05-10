@@ -1,0 +1,15 @@
+table {
+  width: 90%;
+  margin: auto;
+}
+table,
+th,
+tr,
+td {
+  border: 2px solid brown;
+  border-collapse: collapse;
+  padding: 10px;
+}
+.pagination {
+  margin: 10px;
+}
