@@ -29,6 +29,8 @@ import GenericsTesting from "./components/generics/GenericsTesting";
 import Summary from "./components/generics/Summary";
 import RandomQuoteGenerator from "./components/RandomQuoteGenerator";
 import PasswordGenerator from "./components/PasswordGenerator";
+import Records from "./components/pagination/Records";
+import StopWatch from "./components/stopwatch/StopWatch";
 
 const App = () => {
   const [number, setNumber] = useState<number>(2);
@@ -148,8 +150,10 @@ const App = () => {
       />
       <GenericsTesting ve1={23} ve2={65} />
       <Summary data={{ name: "mani", age: 22 }} property={"age"} />
-      <RandomQuoteGenerator/>
-      <PasswordGenerator/>
+      <RandomQuoteGenerator />
+      <PasswordGenerator />
+      <Records />
+      <StopWatch />
     </div>
   );
 };
