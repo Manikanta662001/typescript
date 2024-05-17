@@ -332,6 +332,17 @@ const W3practice = () => {
   }
   const newArray: ForList = ["interface", "for", "Array"];
   console.log(createPair<string, number>("hello", 42)); // ['hello', 42]
+
+  interface PersonData {
+    name: string;
+    "Ph num": string;
+    "Native place": string;
+  }
+  const JsonData: PersonData = {
+    name: "mani",
+    "Ph num": "7937436593",
+    "Native place": "TPT",
+  };
   return (
     <div>
       <h1>This is typescript project</h1>

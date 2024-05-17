@@ -1,0 +1,16 @@
+.boxes {
+  display: flex;
+  justify-content: space-between;
+}
+.boxes div {
+  width: 40%;
+  background-color: grey;
+}
+.side-box ul {
+  list-style-type: none;
+}
+.side-box ul li {
+  padding: 5px;
+  font-size: large;
+  color:springgreen;
+}

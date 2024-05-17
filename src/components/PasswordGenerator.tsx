@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import "./PasswordGenerator.css";
 import TextField from "@mui/material/TextField";
-import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import {
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Slider,
+  Typography,
+} from "@mui/material";
 const data = {
   small: "abcdefghijklmnopqrstuvwxyz",
   capital: "ABCDFGHIJKLMNOPQRSTUVWXYZ",
@@ -19,6 +25,7 @@ function PasswordGenerator() {
     specialchars: false,
   });
   const [isCopied, setIsCopied] = useState(false);
+  const [pwdlength, setPwdLength] = useState(8);
   const { uppercase, lowercase, numbers, specialchars } = allcheckboxes;
   const { small, capital, numberchars, special } = data;
 
@@ -29,6 +36,10 @@ function PasswordGenerator() {
     });
   };
 
+  const handleChange = (event: any, newValue: any) => {
+      setPwdLength(newValue);
+  };
+
   const handleGenerate = () => {
     let generatedPassword: string = "";
     let validChars: string = "";
@@ -37,7 +48,7 @@ function PasswordGenerator() {
     if (numbers) validChars += numberchars;
     if (specialchars) validChars += special;
     if (validChars) {
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < pwdlength; i++) {
         const randomCharacter =
           validChars[Math.floor(Math.random() * validChars.length)];
         generatedPassword += randomCharacter;
@@ -62,7 +73,7 @@ function PasswordGenerator() {
   };
   return (
     <div>
-      <form>
+      <form className="pwd-form">
         <h1>Password Generator</h1>
         <TextField
           id="txt"
@@ -78,6 +89,19 @@ function PasswordGenerator() {
         >
           {isCopied ? "Copied" : "Copy"}
         </Button>
+        <div>
+          <Typography id="non-linear-slider" gutterBottom>
+            Password Length You Need: <b>{pwdlength}</b>
+          </Typography>
+          <Slider
+            sx={{ width: 200 }}
+            value={pwdlength}
+            min={6}
+            max={20}
+            step={1}
+            onChange={handleChange}
+          />
+        </div>
         <div id="allcheckboxes">
           <FormGroup>
             <FormControlLabel
