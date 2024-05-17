@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./Records.css";
+import { MenuItem, Select } from "@mui/material";
 interface AllPostsInterface {
   userId: number;
   id: number;
@@ -13,7 +14,8 @@ function Records() {
     [] as AllPostsInterface[]
   );
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const recordsPerPage = 7;
+  const [recordsPerPage, setRecordsPerPage] = useState(10);
+
   const indexOfLastRecord = recordsPerPage * currentPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentShowingRecords = allPosts.slice(
@@ -68,6 +70,8 @@ function Records() {
         totalPages={totalPages}
         currentPage={currentPage}
         handlePageChange={handlePageChange}
+        recordsPerPage={recordsPerPage}
+        setRecordsPerPage={setRecordsPerPage}
       />
     </div>
   );
@@ -78,17 +82,28 @@ interface PaginationProps {
   totalPages: number;
   currentPage: number;
   handlePageChange: (num: number) => void;
+  recordsPerPage: number;
+  setRecordsPerPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Pagination = ({
   totalPages,
   currentPage,
   handlePageChange,
+  recordsPerPage,
+  setRecordsPerPage,
 }: PaginationProps) => {
   const pageNumbers: number[] = Array.from(
     { length: totalPages },
     (_, index) => index + 1
   );
+  // eslint-disable-next-line
+  const [options, setOptions] = useState([
+    { value: 10, label: 10 },
+    { value: 15, label: 15 },
+    { value: 20, label: 20 },
+    { value: 25, label: 25 },
+  ]);
   return (
     <div>
       <div className="pagination">
@@ -142,6 +157,14 @@ const Pagination = ({
         >
           Next
         </Button>
+        <Select
+          value={recordsPerPage}
+          onChange={(e) => setRecordsPerPage(Number(e.target.value))}
+        >
+          {options.map((option) => {
+            return <MenuItem value={option.value}>{option.label}</MenuItem>;
+          })}
+        </Select>
       </div>
     </div>
   );

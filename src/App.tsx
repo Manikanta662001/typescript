@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import "./App.css";
 import W3practice from "./W3practice";
 import UsersList, { FirstComponent } from "./components/FirstComponent";
@@ -31,7 +31,14 @@ import RandomQuoteGenerator from "./components/RandomQuoteGenerator";
 import PasswordGenerator from "./components/PasswordGenerator";
 import Records from "./components/pagination/Records";
 import StopWatch from "./components/stopwatch/StopWatch";
-
+import Navbar from "./components/nav/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Popup from "./components/popup/Popup";
+import Errorpage from "./components/Errorpage";
+import IPAddress from "./components/IPAddress";
+import DragDrop from "./components/drag-drop/DragDrop";
+// import EmojiSearch from "./components/emojis/EmojiSearch";
+const LazyEmojiSearch = lazy(() => import("./components/emojis/EmojiSearch"));
 const App = () => {
   const [number, setNumber] = useState<number>(2);
   const [todo, setTodo] = useState<string>("");
@@ -88,72 +95,161 @@ const App = () => {
   return (
     <div className="App">
       <h1>This project is deployed using {personName.first}</h1>
-      <W3practice />
-      <FirstComponent />
-      <UsersList />
-      <PropsComponent fName="jack" lName="Sparrow" />
-      <UserComponent
-        name="John Doe"
-        age={26}
-        address="87 Summer St, Boston, MA 02110"
-        dob={new Date()}
-      />
-      <Greet name={"mani"} count={20} isLogedin={true} />
-      <Greet name={"mani"} isLogedin={true} />
-      <Person name={personName} />
-      <Personlist names={nameList} />
-      <Status status="error" />
-      <Heading>This is Heading component children</Heading>
-      <Heading>
-        <div>This is Heading component children</div>
-      </Heading>
-      <Oscar>
-        <Heading>Oscar goes to leader</Heading>
-      </Oscar>
-      <Count count={2} />
-      <Dummycompo number={number} setNumber={setNumber} style={style} />
-      <FetchTesting />
-      <Button
-        handleClick={(event, id) => {
-          console.log("Button Clicked", event, id);
-        }}
-      />
-      <Input
-        todo={todo}
-        setTodo={setTodo}
-        submitFunc={handleSubmit}
-        todoList={todoList}
-        handleEdit={handleEdit}
-        submit={submit}
-        handleDelete={handleDelete}
-      />
-      <User />
-      <Counter />
-      <ThemeContextProvider>
-        <Box />
-      </ThemeContextProvider>
-      <UserContextProvider>
-        <Users />
-      </UserContextProvider>
-      <DomRef />
-      <MutableRef />
-      <ClassCounter message="Class Counter has a Count of " />
+      <Navbar />
+      <Routes>
+        <Route path="/w3practice" element={<W3practice />} />
+        <Route path="/firstcompo" element={<FirstComponent />} />
+        <Route path="/userslist" element={<UsersList />} />
+        <Route
+          path="/propscompo"
+          element={<PropsComponent fName="jack" lName="Sparrow" />}
+        />
+        <Route
+          path="/usercompo"
+          element={
+            <UserComponent
+              name="John Doe"
+              age={26}
+              address="87 Summer St, Boston, MA 02110"
+              dob={new Date()}
+            />
+          }
+        />
+        <Route
+          path="/greet"
+          element={<Greet name={"mani"} count={20} isLogedin={true} />}
+        />
+        <Route
+          path="/greetoptional"
+          element={<Greet name={"mani"} isLogedin={true} />}
+        />
+        <Route path="/person" element={<Person name={personName} />} />
+        <Route path="/personlist" element={<Personlist names={nameList} />} />
+        <Route path="/status" element={<Status status="error" />} />
+        <Route
+          path="/heading"
+          element={<Heading>This is Heading component children</Heading>}
+        />
+        <Route
+          path="/heading1"
+          element={<Heading>This is Heading component children</Heading>}
+        />
+        <Route
+          path="/heading2"
+          element={
+            <Heading>
+              <div>This is Heading component children</div>
+            </Heading>
+          }
+        />
+        <Route
+          path="/oscar"
+          element={
+            <Oscar>
+              <Heading>Oscar goes to leader</Heading>
+            </Oscar>
+          }
+        />
+        <Route path="/count" element={<Count count={2} />} />
+        <Route
+          path="/dummycompo"
+          element={
+            <Dummycompo number={number} setNumber={setNumber} style={style} />
+          }
+        />
+
+        <Route path="/fetchtesting" element={<FetchTesting />} />
+        <Route
+          path="/button"
+          element={
+            <Button
+              handleClick={(event, id) => {
+                console.log("Button Clicked", event, id);
+              }}
+            />
+          }
+        />
+        <Route
+          path="/todo"
+          element={
+            <Input
+              todo={todo}
+              setTodo={setTodo}
+              submitFunc={handleSubmit}
+              todoList={todoList}
+              handleEdit={handleEdit}
+              submit={submit}
+              handleDelete={handleDelete}
+            />
+          }
+        />
+        <Route path="/user" element={<User />} />
+        <Route path="/counter" element={<Counter />} />
+        <Route
+          path="/themecontext"
+          element={
+            <ThemeContextProvider>
+              <Box />
+            </ThemeContextProvider>
+          }
+        />
+        <Route
+          path="/usercontext"
+          element={
+            <UserContextProvider>
+              <Users />
+            </UserContextProvider>
+          }
+        />
+        <Route path="/domref" element={<DomRef />} />
+        <Route path="/mutableref" element={<MutableRef />} />
+        <Route
+          path="/classcounter"
+          element={<ClassCounter message="Class Counter has a Count of " />}
+        />
+        <Route
+          path="/generics1"
+          element={
+            <List
+              items={[
+                { id: 1, name: "mani", loc: "hyb" },
+                { id: 2, name: "ram", loc: "hyb" },
+                { id: 3, name: "aadarsh", loc: "hyb" },
+              ]}
+              onClick={(item) => console.log("LISTITEM::", item)}
+            />
+          }
+        />
+        <Route
+          path="/generics2"
+          element={<GenericsTesting ve1={23} ve2={65} />}
+        />
+        <Route
+          path="/summary"
+          element={
+            <Summary data={{ name: "mani", age: 22 }} property={"age"} />
+          }
+        />
+        <Route path="/quotegenerator" element={<RandomQuoteGenerator />} />
+        <Route path="/passwordgenerator" element={<PasswordGenerator />} />
+        <Route path="/records" element={<Records />} />
+        <Route path="/stopwatch" element={<StopWatch />} />
+        <Route path="/popup" element={<Popup />} />
+        <Route
+          path="/emojisearch"
+          element={
+            <Suspense fallback="Loading.......">
+              <LazyEmojiSearch />
+            </Suspense>
+          }
+        />
+        <Route path="/ipaddress" element={<IPAddress />} />
+        <Route path="/dragdrop" element={<DragDrop />} />
+        <Route path="*" element={<Errorpage />} />
+      </Routes>
+
       {/* <List items={["lion","bull","fox"]} onClick = {(item)=>console.log("LISTITEM::",item)}/>
       <List items={[5,6,7]} onClick = {(item)=>console.log("LISTITEM::",item)}/> */}
-      <List
-        items={[
-          { id: 1, name: "mani", loc: "hyb" },
-          { id: 2, name: "ram", loc: "hyb" },
-          { id: 3, name: "aadarsh", loc: "hyb" },
-        ]}
-        onClick={(item) => console.log("LISTITEM::", item)}
-      />
-      <GenericsTesting ve1={23} ve2={65} />
-      <Summary data={{ name: "mani", age: 22 }} property={"age"} />
-      <RandomQuoteGenerator />
-      <PasswordGenerator />
-      <Records />
-      <StopWatch />
     </div>
   );
 };
