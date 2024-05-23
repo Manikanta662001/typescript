@@ -44,6 +44,7 @@ function Navbar() {
         <NavLink to={"/emojisearch"}>EmojiSearch</NavLink>
         <NavLink to={"/ipaddress"}>Ip Address</NavLink>
         <NavLink to={"/dragdrop"}>Drag-Drop</NavLink>
+        <NavLink to={"/toastify"}>Toastify</NavLink>
       </div>
     </div>
   );
