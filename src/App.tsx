@@ -37,6 +37,7 @@ import Popup from "./components/popup/Popup";
 import Errorpage from "./components/Errorpage";
 import IPAddress from "./components/IPAddress";
 import DragDrop from "./components/drag-drop/DragDrop";
+import Index from "./components/toastify/Index";
 // import EmojiSearch from "./components/emojis/EmojiSearch";
 const LazyEmojiSearch = lazy(() => import("./components/emojis/EmojiSearch"));
 const App = () => {
@@ -245,6 +246,7 @@ const App = () => {
         />
         <Route path="/ipaddress" element={<IPAddress />} />
         <Route path="/dragdrop" element={<DragDrop />} />
+        <Route path="/toastify" element={<Index />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
 
