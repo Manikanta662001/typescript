@@ -18,7 +18,7 @@ function Index() {
     toast.info("Info Notification", {
       position: "top-center",
       autoClose: 5000,
-      // hideProgressBar: true,
+      hideProgressBar: true,
     });
     toast.warning("Warning Notification", {
       position: "bottom-right",

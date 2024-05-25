@@ -45,6 +45,7 @@ function Navbar() {
         <NavLink to={"/ipaddress"}>Ip Address</NavLink>
         <NavLink to={"/dragdrop"}>Drag-Drop</NavLink>
         <NavLink to={"/toastify"}>Toastify</NavLink>
+        <NavLink to={"/react-data-grid"}>React-data-grid</NavLink>
       </div>
     </div>
   );
