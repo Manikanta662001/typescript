@@ -38,6 +38,7 @@ import Errorpage from "./components/Errorpage";
 import IPAddress from "./components/IPAddress";
 import DragDrop from "./components/drag-drop/DragDrop";
 import Index from "./components/toastify/Index";
+import Datagrid from "./components/react-data-grid/ReactDatagrid";
 // import EmojiSearch from "./components/emojis/EmojiSearch";
 const LazyEmojiSearch = lazy(() => import("./components/emojis/EmojiSearch"));
 const App = () => {
@@ -247,6 +248,7 @@ const App = () => {
         <Route path="/ipaddress" element={<IPAddress />} />
         <Route path="/dragdrop" element={<DragDrop />} />
         <Route path="/toastify" element={<Index />} />
+        <Route path="/react-data-grid" element={<Datagrid />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
 
