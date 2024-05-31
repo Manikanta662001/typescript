@@ -363,3 +363,7 @@ const W3practice = () => {
   );
 };
 export default W3practice;
+function dt(value: number): number | PromiseLike<number> {
+  throw new Error("Function not implemented.");
+}
+
