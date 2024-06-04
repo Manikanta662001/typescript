@@ -4,7 +4,7 @@ import "./Popup.css";
 
 function Popup() {
   const [show, setShow] = useState(false);
-  const handleOutsideClick = (e: any) => {
+  const handleOutsideClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     console.log("CURRENTTARGET::::", e.target, e.currentTarget);
     if (e.target === e.currentTarget) {
       setShow(false);

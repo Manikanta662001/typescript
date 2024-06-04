@@ -29,15 +29,15 @@ function PasswordGenerator() {
   const { uppercase, lowercase, numbers, specialchars } = allcheckboxes;
   const { small, capital, numberchars, special } = data;
 
-  const handleCheckboxChange = (event: any) => {
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAllCheckBoxes({
       ...allcheckboxes,
       [event.target.name]: event.target.checked,
     });
   };
 
-  const handleChange = (event: any, newValue: any) => {
-      setPwdLength(newValue);
+  const handleChange = (_event: Event, newValue: number | number[]) => {
+    setPwdLength(newValue as number);
   };
 
   const handleGenerate = () => {

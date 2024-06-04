@@ -13,7 +13,7 @@ function EmojiSearch() {
   const [filteredEmojis, setFilteredEmojis] = useState<EmojisState[]>(emojis);
   const [message, setMessage] = useState<string>("");
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchedVal(e.target.value);
   };
   const handleMessageSend = () => {
@@ -39,7 +39,7 @@ function EmojiSearch() {
             type="text"
             placeholder="Enter a Message to send"
             value={message}
-            onChange={(e: any) =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setMessage((prevmsg) => prevmsg + e.target.value)
             }
           />

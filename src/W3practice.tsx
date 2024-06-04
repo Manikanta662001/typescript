@@ -292,6 +292,9 @@ const W3practice = () => {
   };
   //it is Readonly
   //person2.age=30
+
+  type Primitive = string | number | boolean;
+  const value: Exclude<Primitive, string> = true;
   class Humans {
     private ssn: string;
     private firstName: string;
@@ -366,4 +369,3 @@ export default W3practice;
 function dt(value: number): number | PromiseLike<number> {
   throw new Error("Function not implemented.");
 }
-

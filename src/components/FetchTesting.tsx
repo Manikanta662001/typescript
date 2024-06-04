@@ -15,14 +15,14 @@ interface UsersList {
   };
 }
 
-function FetchTesting() {
+function FetchTesting(): JSX.Element {
   const [data, setData] = useState<UsersList[] | []>([]);
   console.log(data, "5555s");
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users",
+          "https://jsonplaceholder.typicode.com/users"
         );
         const res = await response.json();
         setData(res);
