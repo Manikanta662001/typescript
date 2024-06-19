@@ -39,6 +39,7 @@ import IPAddress from "./components/IPAddress";
 import DragDrop from "./components/drag-drop/DragDrop";
 import Index from "./components/toastify/Index";
 import Datagrid from "./components/react-data-grid/ReactDatagrid";
+import InfiniteScroll from "./components/infinite-scroll/index";
 // import EmojiSearch from "./components/emojis/EmojiSearch";
 const LazyEmojiSearch = lazy(() => import("./components/emojis/EmojiSearch"));
 const App = () => {
@@ -96,7 +97,7 @@ const App = () => {
   };
   return (
     <div className="App">
-      <h1>This project is deployed using {personName.first}</h1>
+      {/* <h1>This project is deployed using {personName.first}</h1> */}
       <Navbar />
       <Routes>
         <Route path="/w3practice" element={<W3practice />} />
@@ -249,6 +250,7 @@ const App = () => {
         <Route path="/dragdrop" element={<DragDrop />} />
         <Route path="/toastify" element={<Index />} />
         <Route path="/react-data-grid" element={<Datagrid />} />
+        <Route path="/infinite-scroll" element={<InfiniteScroll />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
 

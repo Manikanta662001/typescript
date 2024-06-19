@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <h1>Navbar</h1>
+      {/* <h1>Navbar</h1> */}
       <div className="alllinks">
         <NavLink to={"/w3practice"}>W3Practise</NavLink>
         <NavLink to={"/firstcompo"}>FirstComponent</NavLink>
@@ -46,6 +46,7 @@ function Navbar() {
         <NavLink to={"/dragdrop"}>Drag-Drop</NavLink>
         <NavLink to={"/toastify"}>Toastify</NavLink>
         <NavLink to={"/react-data-grid"}>React-data-grid</NavLink>
+        <NavLink to={"/infinite-scroll"}>Infinite Scroll</NavLink>
       </div>
     </div>
   );

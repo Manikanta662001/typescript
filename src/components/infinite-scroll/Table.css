@@ -1,0 +1,18 @@
+.scroll-list-div{
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 400px;
+    height: 200px;
+    overflow: auto;
+    margin: auto;
+}
+.scroll-list-div ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.scroll-list-div ul li{
+    padding: 5px;
+    background-color: bisque;
+    border-bottom: 2px solid white;
+}
