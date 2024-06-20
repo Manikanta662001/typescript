@@ -1,32 +1,21 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./Table.css";
 
 interface TableProps {
-  initialData: string[];
+  uiData: string[];
   loading: boolean;
-  loadMore: (pageNum: number) => Promise<string[]>;
-  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  loadMore: () => void;
+  hasData: boolean;
 }
 const Table = (props: TableProps) => {
-  const { initialData, loading, loadMore, setLoading } = props;
-  const [showingdata, setShowingData] = useState<string[]>(initialData);
-  const [pageNumber, setPageNumber] = useState<number>(0);
+  const { uiData, loading, loadMore, hasData } = props;
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const handleScroll = async () => {
+  const handleScroll = () => {
     const { scrollHeight, scrollTop, clientHeight } =
       scrollRef.current as HTMLDivElement;
-
-    if (scrollTop + clientHeight >= scrollHeight - 3 && !loading) {
-      setPageNumber((prevPageNum) => {
-        const nextPageNum = prevPageNum + 1;
-        const fetchData = async () => {
-          const newData = await loadMore(nextPageNum);
-          if (newData) setShowingData([...showingdata, ...newData]);
-        };
-        fetchData();
-        return nextPageNum;
-      });
+    if (scrollTop + clientHeight >= scrollHeight - 3 && !loading && hasData) {
+      loadMore();
     }
   };
   useEffect(() => {
@@ -34,14 +23,16 @@ const Table = (props: TableProps) => {
     return () => {
       scrollRef.current?.removeEventListener("scroll", handleScroll);
     };
-  }, [loading]);
+  }, [loading, hasData]);
+
   return (
     <div ref={scrollRef} className="scroll-list-div">
       <ul>
-        {showingdata.map((item, ind) => {
-          return <li key={item}>{item}</li>;
+        {uiData.map((item, ind) => {
+          return <li key={item + ind}>{item}</li>;
         })}
         {loading && <li>Loading.....</li>}
+        {!hasData && <li>No More Records</li>}
       </ul>
     </div>
   );

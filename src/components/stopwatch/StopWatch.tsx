@@ -11,7 +11,7 @@ function StopWatch() {
     setIsRunning(true);
     setStartTime(Date.now());
   };
-  const handleStop = () => {
+  const handleReset = () => {
     setIsRunning(false);
     setElapsedTime(0);
     setLaps([]);
@@ -57,8 +57,8 @@ function StopWatch() {
       >
         {isRunning ? "Pause" : "Start"}
       </Button>{" "}
-      <Button variant="contained" onClick={handleStop}>
-        Stop
+      <Button variant="contained" onClick={handleReset}>
+        Reset
       </Button>{" "}
       <Button variant="contained" onClick={handleLap}>
         Lap

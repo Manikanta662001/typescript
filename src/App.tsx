@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy, useMemo, useState } from "react";
 import "./App.css";
 import W3practice from "./W3practice";
 import UsersList, { FirstComponent } from "./components/FirstComponent";
@@ -13,7 +13,7 @@ import { Oscar } from "./components/Oscar";
 import { Count } from "./components/Count";
 import Dummycompo from "./components/Dummycompo";
 import FetchTesting from "./components/FetchTesting";
-import Input from "./components/Input";
+import Input from "./components/input/Input";
 import Button from "./components/Button";
 import User from "./components/state/User";
 import Counter from "./components/state/Counter";
@@ -40,6 +40,12 @@ import DragDrop from "./components/drag-drop/DragDrop";
 import Index from "./components/toastify/Index";
 import Datagrid from "./components/react-data-grid/ReactDatagrid";
 import InfiniteScroll from "./components/infinite-scroll/index";
+import StyledComponent from "./components/styled-components/StyledComponent";
+import { useDataContext } from "./AuthContext";
+import DarkLightModes from "./components/dark-light-modes/DarkLightModes";
+import themeSettings from "./components/dark-light-modes/theme";
+import { createTheme } from "@mui/material/styles";
+import {ThemeProvider, CssBaseline } from "@mui/material";
 // import EmojiSearch from "./components/emojis/EmojiSearch";
 const LazyEmojiSearch = lazy(() => import("./components/emojis/EmojiSearch"));
 const App = () => {
@@ -95,9 +101,16 @@ const App = () => {
     textAlign: "center",
     color: "red",
   };
+  // For Dark and Light Modes
+  const { mode } = useDataContext();
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  console.log("THEME::::", theme);
+
   return (
     <div className="App">
       {/* <h1>This project is deployed using {personName.first}</h1> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
       <Navbar />
       <Routes>
         <Route path="/w3practice" element={<W3practice />} />
@@ -251,9 +264,11 @@ const App = () => {
         <Route path="/toastify" element={<Index />} />
         <Route path="/react-data-grid" element={<Datagrid />} />
         <Route path="/infinite-scroll" element={<InfiniteScroll />} />
+        <Route path="/styled-component" element={<StyledComponent />} />
+        <Route path="/dark-light-mode" element={<DarkLightModes />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
-
+      </ThemeProvider>
       {/* <List items={["lion","bull","fox"]} onClick = {(item)=>console.log("LISTITEM::",item)}/>
       <List items={[5,6,7]} onClick = {(item)=>console.log("LISTITEM::",item)}/> */}
     </div>

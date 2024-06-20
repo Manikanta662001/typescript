@@ -27,6 +27,9 @@ function Records() {
   const handlePageChange = (pagenum: number): void => {
     setCurrentPage(pagenum);
   };
+  const handleRecordsPerPage = (recordsperpage: number): void => {
+    setRecordsPerPage(recordsperpage);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -71,7 +74,7 @@ function Records() {
         currentPage={currentPage}
         handlePageChange={handlePageChange}
         recordsPerPage={recordsPerPage}
-        setRecordsPerPage={setRecordsPerPage}
+        handleRecordsPerPage={handleRecordsPerPage}
       />
     </div>
   );
@@ -83,7 +86,7 @@ interface PaginationProps {
   currentPage: number;
   handlePageChange: (num: number) => void;
   recordsPerPage: number;
-  setRecordsPerPage: React.Dispatch<React.SetStateAction<number>>;
+  handleRecordsPerPage: (num: number) => void;
 }
 
 const Pagination = ({
@@ -91,7 +94,7 @@ const Pagination = ({
   currentPage,
   handlePageChange,
   recordsPerPage,
-  setRecordsPerPage,
+  handleRecordsPerPage,
 }: PaginationProps) => {
   const pageNumbers: number[] = Array.from(
     { length: totalPages },
@@ -159,7 +162,7 @@ const Pagination = ({
         </Button>
         <Select
           value={recordsPerPage}
-          onChange={(e) => setRecordsPerPage(Number(e.target.value))}
+          onChange={(e) => handleRecordsPerPage(Number(e.target.value))}
         >
           {options.map((option) => {
             return <MenuItem value={option.value}>{option.label}</MenuItem>;

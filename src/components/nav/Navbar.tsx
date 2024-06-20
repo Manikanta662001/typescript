@@ -38,7 +38,7 @@ function Navbar() {
         <NavLink to={"/summary"}>Summary</NavLink>
         <NavLink to={"/quotegenerator"}>RandomQuoteGenerator</NavLink>
         <NavLink to={"/passwordgenerator"}>PasswordGenerator</NavLink>
-        <NavLink to={"/records"}>Records</NavLink>
+        <NavLink to={"/records"}>Pagination</NavLink>
         <NavLink to={"/stopwatch"}>StopWatch</NavLink>
         <NavLink to={"/popup"}>Popup</NavLink>
         <NavLink to={"/emojisearch"}>EmojiSearch</NavLink>
@@ -47,6 +47,8 @@ function Navbar() {
         <NavLink to={"/toastify"}>Toastify</NavLink>
         <NavLink to={"/react-data-grid"}>React-data-grid</NavLink>
         <NavLink to={"/infinite-scroll"}>Infinite Scroll</NavLink>
+        <NavLink to={"/styled-component"}>Styled Component</NavLink>
+        <NavLink to={"/dark-light-mode"}>Dark mode Light mode</NavLink>
       </div>
     </div>
   );
