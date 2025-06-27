@@ -35,6 +35,7 @@ function Navbar() {
         <NavLink to={"/classcounter"}>ClassCounter</NavLink>
         <NavLink to={"/generics1"}>Generics1</NavLink>
         <NavLink to={"/generics2"}>Generics2</NavLink>
+        <NavLink to={"/generics-examples"}>Generics Examples</NavLink>
         <NavLink to={"/summary"}>Summary</NavLink>
         <NavLink to={"/quotegenerator"}>RandomQuoteGenerator</NavLink>
         <NavLink to={"/passwordgenerator"}>PasswordGenerator</NavLink>

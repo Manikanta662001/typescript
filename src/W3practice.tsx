@@ -279,6 +279,11 @@ const W3practice = () => {
     age: number;
     location?: string;
   }
+  const personx: Omit<Person1, "age"> = {
+    name: "hai",
+    //age: 2,
+    location:"HYB"
+  };
   const person1: Omit<Person1, "age" | "location"> = {
     name: "hai",
   };
@@ -294,7 +299,9 @@ const W3practice = () => {
   //person2.age=30
 
   type Primitive = string | number | boolean;
+  // removes specific members from a union type.
   const value: Exclude<Primitive, string> = true;
+  const value1: Exclude<Primitive, string | boolean> = 2;
   class Humans {
     private ssn: string;
     private firstName: string;

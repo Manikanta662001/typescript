@@ -25,7 +25,9 @@ import DomRef from "./components/ref/DomRef";
 import MutableRef from "./components/ref/MutableRef";
 import ClassCounter from "./components/class/ClassCounter";
 import List from "./components/generics/List";
-import GenericsTesting from "./components/generics/GenericsTesting";
+import GenericsTesting, {
+  GenericsPractice,
+} from "./components/generics/GenericsTesting";
 import Summary from "./components/generics/Summary";
 import RandomQuoteGenerator from "./components/RandomQuoteGenerator";
 import PasswordGenerator from "./components/PasswordGenerator";
@@ -226,6 +228,7 @@ const App = () => {
           path="/generics2"
           element={<GenericsTesting ve1={23} ve2={65} />}
         />
+        <Route path="/generics-examples" element={<GenericsPractice />} />
         <Route
           path="/summary"
           element={
